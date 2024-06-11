@@ -1,27 +1,30 @@
 :root {
     --nice-padding: 6rem;
     --roundness: 0.75rem;
-    --accent1: #02db02;
-    --accent2: #05b305;
+    --accent1: #014EA4;
+    --accent2: #003f85;
     --accent2_transp: #05b30555;
     --background1: #212529;
     --background2: #16191b;
-
-
     color-scheme: dark;
 }
 
 span {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'MinePlayer', sans-serif;
 }
 
 body {
-    font-family:'Space Grotesk', sans-serif;
+    font-family: 'MinePlayer', sans-serif;
     background-color: var(--background1);
     color: white;
-    margin:0px;
+    margin: 0px;
 }
-
+   @font-face {
+    font-family: 'Terminal Medium';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Terminal Medium'), url('Terminal.woff') format('woff');
+    }
 
 #more {
     padding-top:5rem;
@@ -67,14 +70,16 @@ body {
 }
 
 .desktop_navbar {
-    position:fixed;
+    font-family: 'Minecraft', sans-serif;
+    letter-spacing: 0.1rem;
+    position: fixed;
     display: flex;
-    height: 4rem;
+    height: 5rem;
     width: 100%;
     top: 0;
     right: 0;
     left: 0;
-    bottom:0;
+    bottom: 0;
     background-color: #00000022;
     backdrop-filter: blur(15px);
     z-index: 5;
@@ -84,7 +89,7 @@ body {
 }
 
 .desktop_navbar_logo_img {
-    width: 5rem;
+    width: 4rem;
     padding-left: 2rem;
     padding-right: 1rem;
 }
@@ -99,6 +104,14 @@ body {
 }
 .desktop_navbar_link:hover {
     color: var(--accent1);
+}
+
+.desktop_navbar_join {
+    font-size: 1.2rem;
+    padding: .8rem;
+    text-decoration: none;
+    color: #fff;
+    text-align: center;
 }
 
 .desktop_navbar_link2 {
@@ -205,62 +218,36 @@ body {
     background-position: 50% 50%;
 }
 
-.main1_logo_a {
-    margin-bottom: var(--nice-padding);
-    cursor: default;
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 600px; /* Altere conforme necessário */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden; /* Garante que o conteúdo extra não seja mostrado */
 }
 
-.main1_logo {
-    display: block;
-    align-self: center;
-    margin-left:auto;
-    margin-right: auto;
-    transition: all .5s;
-    max-width: 40rem;
-}
-.main1_logo:hover {
-    transform: scale(1.05)
+.main1_description_video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que o vídeo se ajuste sem cortar */
+    z-index: 1; /* Coloca o vídeo abaixo da seta */
 }
 
-.main1_description {
-    text-align: center;
-    font-size:3rem;
-    margin-bottom: var(--nice-padding);
-    margin-left: 1rem;
-    margin-right: 1rem;
+.scroll-arrow {
+    position: absolute;
+    bottom: 20px; /* Ajuste a posição vertical conforme necessário */
+    cursor: pointer;
+    z-index: 2; /* Certifique-se de que a seta fique acima do vídeo */
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .main1_actcent {
-    font-weight: 800;
+    font-weight: 800;   
     color:var(--accent1);
-}
-
-.main1_ipcopier {
-    padding: 1rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    font-size: 2rem;
-    background-color: var(--accent2_transp);
-    border: 0px;
-    border-radius: var(--roundness);
-    color: white;
-    transition: all .5s;
-    cursor:pointer;
-    position: relative;
-}
-
-.main1_ipcopier:hover {
-    background-color: var(--accent2);
-    transform: scale(1.05)
-}
-
-.main1_ipcopier_text1 {
-    font-size:2rem;
-    font-weight: 800;
-}
-
-.main1_ipcopier_text2 {
-    font-size:1.5rem;
 }
 
 .main1_popup {
@@ -450,10 +437,10 @@ body {
 }
 .main5_admins_div{
     display: flex;
-    max-width: 46rem;
-    min-height: 18rem;
+    max-width: 35rem;
+    min-height: 8rem;
     background-color: var(--background1);
-    border-radius: var(--roundness);
+    border-radius: 5px;
     margin-top: 1rem;
     margin-right: 1rem;
     margin-left: 1rem;
@@ -468,16 +455,18 @@ body {
 }
 
 .main5_admins_img {
-    border-radius: var(--roundness);
-    max-width: 45%;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    max-width: 35%;
     max-height: 100%;
     align-self: center;
 }
 .main5_admins_description_div {
+    font-family: 'Terminal Medium';
     display: flex;
+    color: #ddd;
     justify-content: center;
     justify-self: center;
-    max-width: 60%;
     padding-top: 2rem;
     padding-bottom: 2rem;
     flex-direction: column;
@@ -485,33 +474,42 @@ body {
     padding-right: 1rem;
     margin-left: auto;
     margin-right: auto;
+    letter-spacing: 0.1px;
+    font-weight: 200%;
 }
 .main5_admins_description_rank {
-    text-align: center;
+    text-align: left;
     font-size:1.5rem;
     font-weight: 700;
     margin-bottom: .5rem;
 }
 .main5_admins_description_rank_owner {
-    color: #3498db;
+    font-family: 'MinePlayer', sans-serif;
+    font-size: 1.2rem;
+    color: #8c00f6;
 }
 .main5_admins_description_rank_admin {
     color: #f82f2f;
 }
 .main5_admins_description_title {
-    text-align: center;
-    font-size:1.5rem;
-    font-weight: 700;
+    font-family: 'MinePlayer', sans-serif;
+    text-align: left;
+    font-size: 1.5rem;
     color: #fff;
     text-decoration: none;
-    transition: all .5s;
     margin-bottom: .5rem;
 }
-.main5_admins_description_title:hover {
-    color: var(--accent1);
-    transform: scale(1.05)
+
+.social-icon img {
+    width: 24px; /* Defina o tamanho desejado */
+    height: 24px; /* Defina o tamanho desejado */
+    align-items: center;
 }
 
+.social-icons {
+    margin-left: auto;
+
+}
 .main5_admins_description {
     margin-bottom: auto;
     font-size:1.2rem;
